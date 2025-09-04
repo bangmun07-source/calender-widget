@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pomodoro Widget</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div class="overlay"></div>
+
+    <header class="topbar">
+      <div class="modes">
+        <button data-mode="pomodoro" class="mode-btn active">Pomodoro</button>
+        <button data-mode="short" class="mode-btn">Short break</button>
+        <button data-mode="long" class="mode-btn">Long break</button>
+      </div>
+      <div class="right-controls">
+        <button id="open-settings" title="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <main class="center">
+      <div id="timer-display" class="timer-display">25:00</div>
+
+      <div class="progress-wrap">
+        <div id="progress" class="progress"></div>
+      </div>
+
+      <div class="controls">
+        <button id="start-pause" class="control primary">Start</button>
+        <button id="reset" class="control">Reset</button>
+        <button id="skip" class="control">Skip</button>
+      </div>
+
+      <div class="short-keys">Space: Start/Pause • R: Reset • S: Skip</div>
+    </main>
+
+    <!-- Settings panel -->
+    <aside id="settings-panel" class="settings-panel" aria-hidden="true">
+      <div class="settings-head">
+        <h3>Settings</h3>
+        <button id="close-settings">✕</button>
+      </div>
+
+      <section class="settings-section">
+        <h4>Durations (minutes)</h4>
+        <div class="row">
+          <label>Focus</label>
+          <input type="number" id="t-pomodoro" min="1" max="180" />
+        </div>
+        <div class="row">
+          <label>Short break</label>
+          <input type="number" id="t-short" min="1" max="180" />
+        </div>
+        <div class="row">
+          <label>Long break</label>
+          <input type="number" id="t-long" min="1" max="180" />
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h4>Behavior</h4>
+        <label class="switch-row"><span>Auto-start breaks</span><input id="auto-breaks" type="checkbox"/></label>
+        <label class="switch-row"><span>Auto-start focus</span><input id="auto-focus" type="checkbox"/></label>
+      </section>
+
+      <section class="settings-section">
+        <h4>Sounds</h4>
+        <label class="switch-row"><span>Tick every second</span><input id="tick-sound" type="checkbox"/></label>
+        <label class="switch-row"><span>End chime</span><input id="chime-sound" type="checkbox"/></label>
+      </section>
+
+      <section class="settings-section">
+        <h4>Background</h4>
+        <div class="bg-presets">
+          <button class="bg-btn" data-url="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop" title="Alpine Lake"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=40&w=200&auto=format&fit=crop" alt="alpine"/></button>
+          <button class="bg-btn" data-url="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop" title="Forest Mist"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=40&w=200&auto=format&fit=crop" alt="forest"/></button>
+          <button class="bg-btn" data-url="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1920&auto=format&fit=crop" title="City Night"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=40&w=200&auto=format&fit=crop" alt="city"/></button>
+        </div>
+
+        <label class="upload">
+          Upload your own
+          <input id="upload-bg" type="file" accept="image/*" />
+        </label>
+      </section>
+
+      <div class="settings-footer">
+        <button id="restore-defaults" class="control">Restore defaults</button>
+        <p class="note">Preferences saved locally in browser.</p>
+      </div>
+    </aside>
+
+    <div id="bottom-fade" class="bottom-fade"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
