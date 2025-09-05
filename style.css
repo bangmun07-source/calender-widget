@@ -1,0 +1,196 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --highlight: #ff7f10;
+  --font-family: "Poppins", sans-serif;
+  --bg-url: url("https://source.unsplash.com/1920x1080/?beach,sunset");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-url) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Calendar Container */
+.calendar-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px);
+  border: 0.2vw solid var(--glass-border);
+  border-radius: 1vw;
+  box-shadow: 0 0.8vw 2vw var(--glass-shadow);
+  padding: 2vh 2vw;
+  width: clamp(300px, 35vw, 420px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+
+.calendar-header h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 0.15vw solid var(--glass-border);
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  border-radius: 50%;
+  width: clamp(40px, 3vw, 50px);
+  height: clamp(40px, 3vw, 50px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Calendar Weekdays */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.7rem, 1vw, 1rem);
+  margin-bottom: 1vh;
+}
+
+/* Calendar Days */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: clamp(5px, 0.6vw, 10px);
+  width: 100%;
+}
+
+.calendar-days div {
+  padding: clamp(0.5rem, 1vw, 0.8rem);
+  text-align: center;
+  border-radius: 0.6vw;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+}
+
+.calendar-days div:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Highlight Today */
+.calendar-days div.today {
+  background: var(--highlight);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Inactive Days */
+.calendar-days div.inactive {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Settings Button */
+.settings-btn {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border: 0.15vw solid var(--glass-border);
+  padding: 0.5rem 0.8rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: fixed;
+  top: 10vh;
+  right: 2vw;
+  width: clamp(250px, 25vw, 320px);
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1vw;
+  border: 0.15vw solid var(--glass-border);
+  color: #fff;
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.3);
+  z-index: 200;
+}
+
+.settings-panel h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.bg-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bg-thumb {
+  width: 55px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.bg-thumb:hover {
+  transform: scale(1.1);
+}
+
+/* Restore Button */
+.restore-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--highlight);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.restore-btn:hover {
+  background: #ff5b2e;
+}
