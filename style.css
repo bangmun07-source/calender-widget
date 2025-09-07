@@ -167,7 +167,7 @@ body{
 .panel-head{display:flex; align-items:center; justify-content:space-between}
 .select, input[type="color"], input[type="file"]{
   border-radius:8px; padding:.45rem; border:1px solid rgba(255,255,255,0.06);
-  background:rgba(255,255,255,0.02); color:#000;
+  background:rgba(255,255,255,0.02); color:inherit;
 }
 .panel-group{display:flex; flex-direction:column; gap:.45rem}
 .presets{display:flex; gap:.6rem; flex-wrap:wrap}
@@ -192,5 +192,5 @@ body{
   .hamburger{right:12px; top:12px}
 }
 @media (max-width:420px){
-  .hamburger{width:20px ;height:20px;font-size:9px}
+  .hamburger{width:36px;height:36px;font-size:18px}
 }
